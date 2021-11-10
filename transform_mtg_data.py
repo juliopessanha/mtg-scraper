@@ -107,7 +107,7 @@ def load_json(folder_path):
 if __name__ == "__main__":
 
     print("Starting the transformation")
-    folder_path = os.path.abspath("./").replace("mtg_scraper", "")
+    folder_path = os.path.abspath("./")#.replace("mtg_scraper", "")
     cards = load_json(folder_path) #load the cards' json
     allCards = [] #all cards to be saved
     brokenCards = [] #all the cards that do not match the schema

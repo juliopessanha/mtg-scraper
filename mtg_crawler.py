@@ -14,7 +14,7 @@ class QuotesSpider(scrapy.Spider):
         for set_link in set_pages:
             if set_link is not None:
                 yield response.follow(set_link, callback=self.set_parse)
-                break
+                #break
         
     def set_parse(self, response):
         card_links = response.css('div.card-grid-item a::attr(href)').getall()
@@ -30,6 +30,6 @@ class QuotesSpider(scrapy.Spider):
 
     def closed(self, reason):
         # will be called when the crawler process ends
-        folder_path = os.path.abspath("./").replace("mtg_scraper", "")
-        os.system('python3 %stransform_mtg_data.py' % folder_path)
+        folder_path = os.path.abspath("./")#.replace("mtg_scraper", "")
+        os.system('python3 %s/transform_mtg_data.py' % folder_path)
     
