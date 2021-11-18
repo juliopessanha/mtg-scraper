@@ -69,8 +69,9 @@ def get_card_data(card_json):
     #card_data.append(collection_name) #set name
     
     try: #get the card price
-        lowPrice = card_json['offers'][0]['lowPrice']
-        highPrice = card_json['offers'][0]['highPrice']
+        if cards[80]['offers'][0]['priceCurrency'] == 'USD':
+            lowPrice = card_json['offers'][0]['lowPrice']
+            highPrice = card_json['offers'][0]['highPrice']
     
     except: #if the card has no price
         lowPrice = '-'
